@@ -14,8 +14,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  {{- range .Values.ingress.hosts }}
-  - host: {{ .name }}
+  - host: {{- template "corporate-app.fullname" . -}}.{{- .Values.ingress.domain -}}
     http:
       paths:
         - pathType: ImplementationSpecific
@@ -24,14 +23,7 @@ spec:
               name: {{ template "corporate-app.fullname" . }}
               port:
                 number: {{ .Values.service.port }}
-  {{- end }}
   tls:
-  {{- range .Values.ingress.hosts }}
   - hosts:
-    - {{ .name }}
-    # Currently Secrets TLS is not possible for Private Domains
-  {{- if .tls }}
-    # secretName: {{ .tlsSecret }}
-  {{- end }}
-  {{- end }}
+    - {{- template "corporate-app.fullname" . -}}.{{- .Values.ingress.domain -}}
 {{- end -}}

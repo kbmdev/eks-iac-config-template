@@ -14,10 +14,13 @@ service:
   port: 80
 
 ingress:
-  enabled: false
+  enabled: true
+  domain: mtk8s.io
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
+  # !!!The BELOW ARE IGNORED!!!
+  hostname: chart-example.local
   path: /
   hosts:
   - name: chart-example.local
