@@ -7,6 +7,7 @@ metadata:
     chart: {{ template "corporate-app.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+    backstage.io/kubernetes-id: {{ template "corporate-app.fullname" . }}
 spec:
   type: {{ .Values.service.type }}
   ports:
