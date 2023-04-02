@@ -37,6 +37,8 @@ spec:
               path: /
               port: http
           resources:
+      imagePullSecrets:
+        - name: mtk8sdkrreg
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
       nodeSelector:
