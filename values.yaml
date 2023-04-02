@@ -20,11 +20,41 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - chart-example.local
-  tls: []
+  - name: chart-example.local
+    tls: false
+    tlsSecret: chart-example-tls
+
+  # path: /
+  # hosts:
+    # - chart-example.local
+  # tls: []
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+#    - name: chart-example.local
+#      path: /
+#
+#      ## Set this to true in order to enable TLS on the ingress record
+#      tls: true
+#
+#      ## If TLS is set to true, you must declare what secret will store the key/certificate for TLS
+#      ## Secrets must be added manually to the namespace
+#      tlsSecret: chart-example-tls
+
+#  hosts:
+#    - name: chartmuseum.domain1.com
+#      path: /
+#      tls: false
+#    - name: chartmuseum.domain2.com
+#      path: /
+#
+#      ## Set this to true in order to enable TLS on the ingress record
+#      tls: true
+#
+#      ## If TLS is set to true, you must declare what secret will store the key/certificate for TLS
+#      ## Secrets must be added manually to the namespace
+#      tlsSecret: chartmuseum.domain2-tls
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
