@@ -14,7 +14,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: {{- template "corporate-app.fullname" . -}}.{{- .Values.ingress.domain -}}
+  - host: {{ template "corporate-app.fullname" . }}.{{ .Values.ingress.domain }}
     http:
       paths:
         - pathType: ImplementationSpecific
@@ -25,5 +25,5 @@ spec:
                 number: {{ .Values.service.port }}
   tls:
   - hosts:
-    - {{- template "corporate-app.fullname" . -}}.{{- .Values.ingress.domain -}}
+    - {{ template "corporate-app.fullname" . }}.{{ .Values.ingress.domain }}
 {{- end -}}
