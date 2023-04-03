@@ -20,6 +20,7 @@ spec:
       labels:
         app: {{ template "corporate-app.name" . }}
         release: {{ .Release.Name }}
+        backstage.io/kubernetes-id: {{ template "corporate-app.fullname" . }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
