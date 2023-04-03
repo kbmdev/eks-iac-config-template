@@ -15,7 +15,6 @@ spec:
     matchLabels:
       app: {{ template "corporate-app.name" . }}
       release: {{ .Release.Name }}
-      backstage.io/kubernetes-id: {{ template "corporate-app.fullname" . }}
   template:
     metadata:
       labels:
